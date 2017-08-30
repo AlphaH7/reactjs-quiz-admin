@@ -1,6 +1,6 @@
 
 # reactjs-quiz-admin
-Web app that loads and displays music data from backend (django) framework.
+Web app that stores and displays questions and answers from localstorage as a questionbank.
 
 # Framework -
 
