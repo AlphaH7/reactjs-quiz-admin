@@ -54,8 +54,6 @@ h1 {
     &-form{
       &-control{
         border: 1px solid #eee !important;
-        background-color: transparent;
-        box-shadow: none !important;
       }
       position: absolute;
       height: 100%;
@@ -123,11 +121,23 @@ h1 {
 }
 .form{
   &-control{
-    border: 1px solid #eee !important;
-    background-color: #eee !important;
+    border: 1px solid #eee;
+    background-color: #eee;
     box-shadow: none !important;
     border-radius: 2px;
     height: 39px;
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: #555!important;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: #555!important;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: #555!important;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: #555!important;
+    }
   }
   &-group{
     padding: 8px 0px;
@@ -266,3 +276,30 @@ a:focus{
     margin: 2px;
   }
 }}
+
+textarea.addqstn{
+  height: 70px;
+}
+
+.addqstn{
+  color: #fff !important;
+  border: 1px solid transparent;
+  background-color: transparent;
+  max-width: 100%!important;
+  max-height: 70px!important;
+  &:focus{
+    border-color: transparent!important;
+  }
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #fff!important;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: #fff!important;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: #fff!important;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: #fff!important;
+  }
+}

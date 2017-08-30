@@ -47,7 +47,7 @@ constructor(props){
     var inputs = this.state.inputs;
     var inputsList = inputs.map(function(input,index){
                     var y = input.toString();
-                    var ph = 'option ' + (input+1)
+                    var ph = 'Enter option ' + (input+1)
                     return <div key={index} className="form-group">
                               <label
                                 className="col-sm-2 col-xs-2 list-right-label"
@@ -57,7 +57,7 @@ constructor(props){
                                 <input
                                   ref={y}
                                   type="textarea"
-                                  className="form-control"
+                                  className="form-control addqstn"
                                   id={y}
                                   placeholder={ph}/>
                               </div>
@@ -71,12 +71,12 @@ constructor(props){
                   <label  className="col-sm-2 col-xs-2 list-right-label"
                   htmlFor="question">Q</label>
                   <div className="col-sm-10 col-xs-10">
-                    <input
+                    <textarea
                       ref="question"
                       type="text"
-                      className="form-control"
+                      className="form-control addqstn"
                       id="question"
-                      placeholder="Question"/>
+                      placeholder="Enter question here"/>
                   </div>
                 </div>
 
