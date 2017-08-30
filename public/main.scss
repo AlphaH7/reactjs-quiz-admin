@@ -59,6 +59,12 @@ h1 {
       &-control{
         border: 1px solid #eee !important;
       }
+      @media(max-width: 596px){
+        height: calc(100% - 225px);
+        overflow: auto;
+      }
+      height: calc(100% - 85px);
+      overflow: auto;
       position: absolute;
       height: 100%;
       left: 0px;
@@ -204,6 +210,8 @@ a:focus{
   width: 100%;
   &-head{
     text-shadow: 2px 1px 8px rgba(0, 0, 0, 1);
+    margin: 0;
+    padding: 20px;
   }
   &-container{
       width: 50%;
