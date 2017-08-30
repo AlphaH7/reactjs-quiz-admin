@@ -14,10 +14,11 @@ Web app that stores and displays questions and answers from localstorage as a qu
 
   - Displays Questions & Answers.
   - Edit Question Bank.
+  - Add images to your Question
   - Add Questions to Question Bank.
   - Delete Questions from Question Bank.
   - Mobile Responsive. 
-  - Stores & retrieves all recorded questions & answers to localstorage. 
+  - Stores & retrieves all recorded questions, answers & images to localstorage. 
 
 # How to install and run -
 
