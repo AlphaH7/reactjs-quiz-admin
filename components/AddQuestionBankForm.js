@@ -50,10 +50,10 @@ constructor(props){
                     var ph = 'option ' + (input+1)
                     return <div key={index} className="form-group">
                               <label
-                                className="col-sm-2 list-right-label"
+                                className="col-sm-2 col-xs-2 list-right-label"
                                 htmlFor={y}>
                               {input + 1})</label>
-                              <div className="col-sm-10">
+                              <div className="col-sm-10 col-xs-10">
                                 <input
                                   ref={y}
                                   type="textarea"
@@ -68,9 +68,9 @@ constructor(props){
               <form className="form-horizontal list-right-form" role="form"
               onSubmit={this.handleAddQuestionBank.bind(this)}>
                 <div className="form-group list-right-question">
-                  <label  className="col-sm-2 list-right-label"
+                  <label  className="col-sm-2 col-xs-2 list-right-label"
                   htmlFor="question">Q</label>
-                  <div className="col-sm-10">
+                  <div className="col-sm-10 col-xs-10">
                     <input
                       ref="question"
                       type="text"
@@ -83,15 +83,10 @@ constructor(props){
                   { inputsList }
 
                   <div className="form-group">
-                    <div className="col-sm-offset-2 col-sm-10">
-                      <button
-                        onClick={this.props.onClose}
-                        type="submit"
-                        className="btn btn-add btn-add-form"
-                        disabled={this.state.count < 2}>Add Question</button>
-                        <button type="button" className="btn btn-add btn-add-form"  onClick={this.onclick.bind(this, 'add')}>Add Option</button>
-                        <button type="button" className="btn btn-sub btn-add-form" disabled={this.state.count == 1} onClick={this.onclick.bind(this, 'sub')}>Remove Option</button>
-
+                    <div className="col-sm-offset-2 col-sm-10 col-xs-12 mob-btn-container">
+                        <button type="button" className="btn btn-add btn-add-form mob-optns-btn"  onClick={this.onclick.bind(this, 'add')}>Add Option</button>
+                        <button type="button" className="btn btn-sub btn-add-form mob-optns-btn" disabled={this.state.count == 1} onClick={this.onclick.bind(this, 'sub')}>Remove Option</button>
+                        <button onClick={this.props.onClose} type="submit" className="btn btn-add btn-add-form" disabled={this.state.count < 2}>Add Question</button>
                           </div>
                   </div>
               </form>

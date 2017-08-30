@@ -5,9 +5,7 @@ body {
   height: 100%;
   overflow: hidden;
   font-family: 'Montserrat', sans-serif;
-  background: #34e89e;
-  background: -webkit-linear-gradient(to right, #0f3443, #34e89e);
-  background: linear-gradient(to right, #0f3443, #34e89e);
+  background: #2a9d99;
 }
 h1 {
   color: #fff;
@@ -19,9 +17,6 @@ h1 {
 .sub-container {
   height: 100%;
   padding-bottom: 50px;
-}
-.modal-wrapper {
-  position: absolute;
 }
 .delete-btn {
   margin-right: 10px;
@@ -54,6 +49,7 @@ h1 {
       font-size: 46px;
       line-height: 0.8;
       text-align: right;
+      color: #fff;
     }
     &-form{
       &-control{
@@ -61,10 +57,10 @@ h1 {
         background-color: transparent;
         box-shadow: none !important;
       }
-      top: 50%;
       position: absolute;
-      width: 90%;
-      transform: translate(0% ,-50%);
+      height: 100%;
+      left: 0px;
+      width: 100%;
       &-group{
         padding: 8px 0px;
       }
@@ -88,6 +84,10 @@ h1 {
     &-form{
         margin: 0 3px;
         width: calc(33% - 6px);
+        @media (max-width:596px){
+              margin: 2px;
+              width: calc(100% - 4px);
+        }
     }
     &:hover{
       background-color: #2a5d84;
@@ -139,17 +139,6 @@ h1 {
 .list-group{
   @media (max-width:596px){
     margin: 0 !important;
-  }
-}
-.modal{
-  &-wrapper{
-      height: 100%;
-      width: 100%;
-  }
-  &-dialog{
-    margin: 0px auto;
-    top: 50%;
-    transform: translate(0,-50%);
   }
 }
 .mar-0{
@@ -228,8 +217,52 @@ a:focus{
     -webkit-box-shadow: -2px -2px 40px -3px rgba(255,255,255,1);
     -moz-box-shadow: -2px -2px 40px -3px rgba(255,255,255,1);
     box-shadow: -2px -2px 40px -3px rgba(255,255,255,1);
+    @media (max-width:596px){
+      height: 100vh;
+      border-radius: 0px;
+    }
+  }
+  &-btn{
+    @media (max-width:596px){
+      width: 100%;
+      margin: 20px 0;
+    }
+  }
+  &-header{
+    @media (max-width:596px){
+      text-align: center;
+    }
+  }
+  &-body{
+    @media(max-width:596px){
+      top: 50%;
+      transform: translate(0%,-50%);
+      height: calc(100% - 70px);
+    }
+  }
+  &-dialog{
+    margin: 0px auto;
+    top: 50%;
+    transform: translate(0,-50%);
   }
   &-wrapper{
+    position: absolute;
+    height: 100%;
+    width: 100%;
     background: rgba(0,0,0, 0.7);
   }
 }
+.mob{
+  &-btn-container{
+    @media (max-width:596px){
+      padding: 0;
+      position: fixed;
+      bottom: 44px;
+    }
+  }
+  &-optns-btn{
+  @media (max-width:596px){
+    width: calc(50% - 4px) !important;
+    margin: 2px;
+  }
+}}

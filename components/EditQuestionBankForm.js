@@ -120,7 +120,7 @@ class EditQuestionBankForm extends Component {
                 {inputsList}
 
                 <div className="form-group">
-                  <div className="col-sm-offset-2 col-sm-10">
+                  <div className="col-sm-offset-2 col-sm-10 modal-btn">
                     <button
                       type="submit"
                       className="btn btn-success">Finish Edit</button>

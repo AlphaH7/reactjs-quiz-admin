@@ -20258,14 +20258,14 @@
 	          _react2.default.createElement(
 	            'label',
 	            {
-	              className: 'col-sm-2 list-right-label',
+	              className: 'col-sm-2 col-xs-2 list-right-label',
 	              htmlFor: y },
 	            input + 1,
 	            ')'
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-10' },
+	            { className: 'col-sm-10 col-xs-10' },
 	            _react2.default.createElement('input', {
 	              ref: y,
 	              type: 'textarea',
@@ -20285,13 +20285,13 @@
 	          { className: 'form-group list-right-question' },
 	          _react2.default.createElement(
 	            'label',
-	            { className: 'col-sm-2 list-right-label',
+	            { className: 'col-sm-2 col-xs-2 list-right-label',
 	              htmlFor: 'question' },
 	            'Q'
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-10' },
+	            { className: 'col-sm-10 col-xs-10' },
 	            _react2.default.createElement('input', {
 	              ref: 'question',
 	              type: 'text',
@@ -20306,25 +20306,21 @@
 	          { className: 'form-group' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-sm-offset-2 col-sm-10' },
+	            { className: 'col-sm-offset-2 col-sm-10 col-xs-12 mob-btn-container' },
 	            _react2.default.createElement(
 	              'button',
-	              {
-	                onClick: this.props.onClose,
-	                type: 'submit',
-	                className: 'btn btn-add btn-add-form',
-	                disabled: this.state.count < 2 },
-	              'Add Question'
-	            ),
-	            _react2.default.createElement(
-	              'button',
-	              { type: 'button', className: 'btn btn-add btn-add-form', onClick: this.onclick.bind(this, 'add') },
+	              { type: 'button', className: 'btn btn-add btn-add-form mob-optns-btn', onClick: this.onclick.bind(this, 'add') },
 	              'Add Option'
 	            ),
 	            _react2.default.createElement(
 	              'button',
-	              { type: 'button', className: 'btn btn-sub btn-add-form', disabled: this.state.count == 1, onClick: this.onclick.bind(this, 'sub') },
+	              { type: 'button', className: 'btn btn-sub btn-add-form mob-optns-btn', disabled: this.state.count == 1, onClick: this.onclick.bind(this, 'sub') },
 	              'Remove Option'
+	            ),
+	            _react2.default.createElement(
+	              'button',
+	              { onClick: this.props.onClose, type: 'submit', className: 'btn btn-add btn-add-form', disabled: this.state.count < 2 },
+	              'Add Question'
 	            )
 	          )
 	        )
@@ -20517,7 +20513,7 @@
 	                  _react2.default.createElement(
 	                    'div',
 	                    { className: 'col-sm-10' },
-	                    _react2.default.createElement('input', {
+	                    _react2.default.createElement('textarea', {
 	                      type: 'text',
 	                      className: 'form-control',
 	                      id: 'question',
@@ -20533,7 +20529,7 @@
 	                  { className: 'form-group' },
 	                  _react2.default.createElement(
 	                    'div',
-	                    { className: 'col-sm-offset-2 col-sm-10' },
+	                    { className: 'col-sm-offset-2 col-sm-10 modal-btn' },
 	                    _react2.default.createElement(
 	                      'button',
 	                      {
@@ -20593,7 +20589,7 @@
 
 
 	// module
-	exports.push([module.id, "html {\n  min-height: 100%; }\n\nbody {\n  height: 100%;\n  overflow: hidden;\n  font-family: 'Montserrat', sans-serif;\n  background: #34e89e;\n  background: -webkit-linear-gradient(to right, #0f3443, #34e89e);\n  background: linear-gradient(to right, #0f3443, #34e89e); }\n\nh1 {\n  color: #fff;\n  font-family: 'Shadows Into Light', cursive;\n  font-size: 40px;\n  text-align: center; }\n\n.container,\n.sub-container {\n  height: 100%;\n  padding-bottom: 50px; }\n\n.modal-wrapper {\n  position: absolute; }\n\n.delete-btn {\n  margin-right: 10px; }\n\n.list-left {\n  background: #18344a;\n  height: 100vh;\n  z-index: 999;\n  transition: max-width 1s,width 1s,right 1s;\n  -webkit-transition: max-width 1s,width 1s,right 1s; }\n  .list-left-accordion {\n    background: #18344a;\n    border: 0px;\n    top: 50%;\n    position: absolute;\n    transform: translate(0, -50%);\n    padding: 0 28px;\n    width: 100%;\n    left: 0; }\n\n.list-right {\n  height: 100vh; }\n  .list-right-question {\n    padding: 50px 0 !important; }\n  .list-right-label {\n    font-family: 'Shadows Into Light', cursive;\n    font-size: 46px;\n    line-height: 0.8;\n    text-align: right; }\n  .list-right-form {\n    top: 50%;\n    position: absolute;\n    width: 90%;\n    transform: translate(0%, -50%); }\n    .list-right-form-control {\n      border: 1px solid #eee !important;\n      background-color: transparent;\n      box-shadow: none !important; }\n    .list-right-form-group {\n      padding: 8px 0px; }\n\n.btn {\n  border-radius: 2px;\n  padding: 12px; }\n  @media (max-width: 1080px) {\n    .btn {\n      font-size: 12px; } }\n  .btn-add {\n    color: #fff;\n    background-color: #5cb85c;\n    border-color: #4cae4c;\n    transition: background-color 1s,border-color 1s;\n    -webkit-transition: background-color 1s,border-color 1s,color 1s;\n    outline: none !important; }\n    .btn-add-form {\n      margin: 0 3px;\n      width: calc(33% - 6px); }\n    .btn-add:hover {\n      background-color: #2a5d84;\n      border-color: #2a5d84;\n      color: #fff; }\n  .btn-edit-form {\n    margin: 0 3px;\n    width: calc(50% - 6px); }\n  .btn-sub {\n    color: #fff;\n    background-color: #BD5454;\n    border-color: #BD5454;\n    transition: background-color 1s,border-color 1s;\n    -webkit-transition: background-color 1s,border-color 1s,color 1s;\n    outline: none !important; }\n    .btn-sub:hover {\n      background-color: #ee7752;\n      border-color: #ee7752;\n      color: #fff; }\n  .btn[disabled] {\n    background-color: #cfc1c1;\n    border-color: #cfc1c1; }\n    .btn[disabled]:hover {\n      background-color: #cfc1c1;\n      border-color: #cfc1c1; }\n\n.form-control {\n  border: 1px solid #eee !important;\n  background-color: #eee !important;\n  box-shadow: none !important;\n  border-radius: 2px;\n  height: 39px; }\n\n.form-group {\n  padding: 8px 0px; }\n  @media (max-width: 596px) {\n    .form-group {\n      margin: 0 !important; } }\n\n@media (max-width: 596px) {\n  .list-group {\n    margin: 0 !important; } }\n\n.modal-wrapper {\n  height: 100%;\n  width: 100%; }\n\n.modal-dialog {\n  margin: 0px auto;\n  top: 50%;\n  transform: translate(0, -50%); }\n\n.mar-0 {\n  margin: 0 !important; }\n\n.pad-0 {\n  padding: 0 !important; }\n\na:focus {\n  text-decoration: none; }\n\n.panel-default {\n  margin-bottom: 13px !important;\n  -webkit-box-shadow: -2px -2px 40px -3px white;\n  -moz-box-shadow: -2px -2px 40px -3px white;\n  box-shadow: -2px -2px 40px -3px white; }\n\n@media (max-width: 1080px) {\n  .panel-heading {\n    padding: 0 !important;\n    text-align: center !important;\n    background-color: #fff !important; } }\n\n@media (max-width: 596px) {\n  .panel-body {\n    padding: 0 !important; } }\n\n.closePanel {\n  width: 100%;\n  max-width: 100%; }\n  @media (max-width: 1080px) {\n    .closePanel {\n      position: fixed;\n      right: 0px; } }\n\n.openPanel {\n  width: 100%;\n  max-width: 360px; }\n  @media (max-width: 1080px) {\n    .openPanel {\n      position: fixed;\n      right: 100vw; } }\n\n.addq {\n  width: 100%; }\n  .addq-container {\n    width: 50%;\n    max-width: 400px;\n    margin: 40px auto 0;\n    display: block; }\n    @media (max-width: 1080px) {\n      .addq-container {\n        display: none; } }\n  .addq-mob {\n    display: none;\n    position: fixed;\n    bottom: 0px;\n    width: 100%;\n    left: 0px; }\n    @media (max-width: 1080px) {\n      .addq-mob {\n        display: block; } }\n\n.well {\n  margin-bottom: 0; }\n\n.modal-content {\n  border: 0px;\n  -webkit-box-shadow: -2px -2px 40px -3px white;\n  -moz-box-shadow: -2px -2px 40px -3px white;\n  box-shadow: -2px -2px 40px -3px white; }\n\n.modal-wrapper {\n  background: rgba(0, 0, 0, 0.7); }\n", ""]);
+	exports.push([module.id, "html {\n  min-height: 100%; }\n\nbody {\n  height: 100%;\n  overflow: hidden;\n  font-family: 'Montserrat', sans-serif;\n  background: #2a9d99; }\n\nh1 {\n  color: #fff;\n  font-family: 'Shadows Into Light', cursive;\n  font-size: 40px;\n  text-align: center; }\n\n.container,\n.sub-container {\n  height: 100%;\n  padding-bottom: 50px; }\n\n.delete-btn {\n  margin-right: 10px; }\n\n.list-left {\n  background: #18344a;\n  height: 100vh;\n  z-index: 999;\n  transition: max-width 1s,width 1s,right 1s;\n  -webkit-transition: max-width 1s,width 1s,right 1s; }\n  .list-left-accordion {\n    background: #18344a;\n    border: 0px;\n    top: 50%;\n    position: absolute;\n    transform: translate(0, -50%);\n    padding: 0 28px;\n    width: 100%;\n    left: 0; }\n\n.list-right {\n  height: 100vh; }\n  .list-right-question {\n    padding: 50px 0 !important; }\n  .list-right-label {\n    font-family: 'Shadows Into Light', cursive;\n    font-size: 46px;\n    line-height: 0.8;\n    text-align: right;\n    color: #fff; }\n  .list-right-form {\n    position: absolute;\n    height: 100%;\n    left: 0px;\n    width: 100%; }\n    .list-right-form-control {\n      border: 1px solid #eee !important;\n      background-color: transparent;\n      box-shadow: none !important; }\n    .list-right-form-group {\n      padding: 8px 0px; }\n\n.btn {\n  border-radius: 2px;\n  padding: 12px; }\n  @media (max-width: 1080px) {\n    .btn {\n      font-size: 12px; } }\n  .btn-add {\n    color: #fff;\n    background-color: #5cb85c;\n    border-color: #4cae4c;\n    transition: background-color 1s,border-color 1s;\n    -webkit-transition: background-color 1s,border-color 1s,color 1s;\n    outline: none !important; }\n    .btn-add-form {\n      margin: 0 3px;\n      width: calc(33% - 6px); }\n      @media (max-width: 596px) {\n        .btn-add-form {\n          margin: 2px;\n          width: calc(100% - 4px); } }\n    .btn-add:hover {\n      background-color: #2a5d84;\n      border-color: #2a5d84;\n      color: #fff; }\n  .btn-edit-form {\n    margin: 0 3px;\n    width: calc(50% - 6px); }\n  .btn-sub {\n    color: #fff;\n    background-color: #BD5454;\n    border-color: #BD5454;\n    transition: background-color 1s,border-color 1s;\n    -webkit-transition: background-color 1s,border-color 1s,color 1s;\n    outline: none !important; }\n    .btn-sub:hover {\n      background-color: #ee7752;\n      border-color: #ee7752;\n      color: #fff; }\n  .btn[disabled] {\n    background-color: #cfc1c1;\n    border-color: #cfc1c1; }\n    .btn[disabled]:hover {\n      background-color: #cfc1c1;\n      border-color: #cfc1c1; }\n\n.form-control {\n  border: 1px solid #eee !important;\n  background-color: #eee !important;\n  box-shadow: none !important;\n  border-radius: 2px;\n  height: 39px; }\n\n.form-group {\n  padding: 8px 0px; }\n  @media (max-width: 596px) {\n    .form-group {\n      margin: 0 !important; } }\n\n@media (max-width: 596px) {\n  .list-group {\n    margin: 0 !important; } }\n\n.mar-0 {\n  margin: 0 !important; }\n\n.pad-0 {\n  padding: 0 !important; }\n\na:focus {\n  text-decoration: none; }\n\n.panel-default {\n  margin-bottom: 13px !important;\n  -webkit-box-shadow: -2px -2px 40px -3px white;\n  -moz-box-shadow: -2px -2px 40px -3px white;\n  box-shadow: -2px -2px 40px -3px white; }\n\n@media (max-width: 1080px) {\n  .panel-heading {\n    padding: 0 !important;\n    text-align: center !important;\n    background-color: #fff !important; } }\n\n@media (max-width: 596px) {\n  .panel-body {\n    padding: 0 !important; } }\n\n.closePanel {\n  width: 100%;\n  max-width: 100%; }\n  @media (max-width: 1080px) {\n    .closePanel {\n      position: fixed;\n      right: 0px; } }\n\n.openPanel {\n  width: 100%;\n  max-width: 360px; }\n  @media (max-width: 1080px) {\n    .openPanel {\n      position: fixed;\n      right: 100vw; } }\n\n.addq {\n  width: 100%; }\n  .addq-container {\n    width: 50%;\n    max-width: 400px;\n    margin: 40px auto 0;\n    display: block; }\n    @media (max-width: 1080px) {\n      .addq-container {\n        display: none; } }\n  .addq-mob {\n    display: none;\n    position: fixed;\n    bottom: 0px;\n    width: 100%;\n    left: 0px; }\n    @media (max-width: 1080px) {\n      .addq-mob {\n        display: block; } }\n\n.well {\n  margin-bottom: 0; }\n\n.modal-content {\n  border: 0px;\n  -webkit-box-shadow: -2px -2px 40px -3px white;\n  -moz-box-shadow: -2px -2px 40px -3px white;\n  box-shadow: -2px -2px 40px -3px white; }\n  @media (max-width: 596px) {\n    .modal-content {\n      height: 100vh;\n      border-radius: 0px; } }\n\n@media (max-width: 596px) {\n  .modal-btn {\n    width: 100%;\n    margin: 20px 0; } }\n\n@media (max-width: 596px) {\n  .modal-header {\n    text-align: center; } }\n\n@media (max-width: 596px) {\n  .modal-body {\n    top: 50%;\n    transform: translate(0%, -50%);\n    height: calc(100% - 70px); } }\n\n.modal-dialog {\n  margin: 0px auto;\n  top: 50%;\n  transform: translate(0, -50%); }\n\n.modal-wrapper {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  background: rgba(0, 0, 0, 0.7); }\n\n@media (max-width: 596px) {\n  .mob-btn-container {\n    padding: 0;\n    position: fixed;\n    bottom: 44px; } }\n\n@media (max-width: 596px) {\n  .mob-optns-btn {\n    width: calc(50% - 4px) !important;\n    margin: 2px; } }\n", ""]);
 
 	// exports
 
