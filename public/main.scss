@@ -52,8 +52,8 @@ h1 {
     }
     &-question{
       padding: 50px 0 30px !important;
-      @media (max-width:596px){
-        padding-top:30px !important;
+      @media (max-width:768px){
+        padding: 30px 0 10px !important;
       }
     }
     &-label{
