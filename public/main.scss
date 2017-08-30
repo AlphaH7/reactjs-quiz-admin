@@ -23,6 +23,7 @@ h1 {
 }
 .list{
   &-left{
+    top: 0px;
     background: #18344a;
     height: 100vh;
     z-index: 999;
@@ -42,7 +43,10 @@ h1 {
   &-right{
     height: 100vh;
     &-question{
-      padding: 50px 0 !important;
+      padding: 50px 0 30px !important;
+      @media (max-width:596px){
+        padding-top:30px !important;
+      }
     }
     &-label{
       font-family: 'Shadows Into Light', cursive;
@@ -198,6 +202,9 @@ a:focus{
 }
 .addq{
   width: 100%;
+  &-head{
+    text-shadow: 2px 1px 8px rgba(0, 0, 0, 1);
+  }
   &-container{
       width: 50%;
       max-width: 400px;

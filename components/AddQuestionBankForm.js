@@ -65,31 +65,34 @@ constructor(props){
                           })
 
     return (
-              <form className="form-horizontal list-right-form" role="form"
-              onSubmit={this.handleAddQuestionBank.bind(this)}>
-                <div className="form-group list-right-question">
-                  <label  className="col-sm-2 col-xs-2 list-right-label"
-                  htmlFor="question">Q</label>
-                  <div className="col-sm-10 col-xs-10">
-                    <textarea
-                      ref="question"
-                      type="text"
-                      className="form-control addqstn"
-                      id="question"
-                      placeholder="Enter question here"/>
-                  </div>
-                </div>
+      <div>
+        <h1 className="addq-head">Add a Question</h1>
+        <form className="form-horizontal list-right-form" role="form"
+        onSubmit={this.handleAddQuestionBank.bind(this)}>
+          <div className="form-group list-right-question">
+            <label  className="col-sm-2 col-xs-2 list-right-label"
+            htmlFor="question">Q</label>
+            <div className="col-sm-10 col-xs-10">
+              <textarea
+                ref="question"
+                type="text"
+                className="form-control addqstn"
+                id="question"
+                placeholder="Enter question here"/>
+            </div>
+          </div>
 
-                  { inputsList }
+            { inputsList }
 
-                  <div className="form-group">
-                    <div className="col-sm-offset-2 col-sm-10 col-xs-12 mob-btn-container">
-                        <button type="button" className="btn btn-add btn-add-form mob-optns-btn"  onClick={this.onclick.bind(this, 'add')}>Add Option</button>
-                        <button type="button" className="btn btn-sub btn-add-form mob-optns-btn" disabled={this.state.count == 1} onClick={this.onclick.bind(this, 'sub')}>Remove Option</button>
-                        <button onClick={this.props.onClose} type="submit" className="btn btn-add btn-add-form" disabled={this.state.count < 2}>Add Question</button>
-                          </div>
-                  </div>
-              </form>
+            <div className="form-group">
+              <div className="col-sm-offset-2 col-sm-10 col-xs-12 mob-btn-container">
+                  <button type="button" className="btn btn-add btn-add-form mob-optns-btn"  onClick={this.onclick.bind(this, 'add')}>Add Option</button>
+                  <button type="button" className="btn btn-sub btn-add-form mob-optns-btn" disabled={this.state.count == 1} onClick={this.onclick.bind(this, 'sub')}>Remove Option</button>
+                  <button onClick={this.props.onClose} type="submit" className="btn btn-add btn-add-form" disabled={this.state.count < 2}>Add Question</button>
+                    </div>
+            </div>
+        </form>
+      </div>
     );
   }
 };
