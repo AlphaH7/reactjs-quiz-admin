@@ -69,6 +69,7 @@ constructor(props){
         <h1 className="addq-head">Add a Question</h1>
         <form className="form-horizontal list-right-form" role="form"
         onSubmit={this.handleAddQuestionBank.bind(this)}>
+        <div className="list-right-qa-cntnr">
           <div className="form-group list-right-question">
             <label  className="col-sm-2 col-xs-2 list-right-label"
             htmlFor="question">Q</label>
@@ -83,7 +84,7 @@ constructor(props){
           </div>
 
             { inputsList }
-
+          </div>
             <div className="form-group">
               <div className="col-sm-offset-2 col-sm-10 col-xs-12 mob-btn-container">
                   <button type="button" className="btn btn-add btn-add-form mob-optns-btn"  onClick={this.onclick.bind(this, 'add')}>Add Option</button>

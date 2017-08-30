@@ -35,13 +35,21 @@ h1 {
       top: 50%;
       position: absolute;
       transform: translate(0,-50%);
-      padding: 0 28px;
+      padding: 28px;
       width: 100%;
       left: 0;
+      max-height: calc(100% - 137px);
+      overflow: auto;
     }
   }
   &-right{
     height: 100vh;
+    &-qa-cntnr{
+      @media (min-width:596px){
+        max-height: calc(100% - 175px);
+        overflow: auto;
+      }
+    }
     &-question{
       padding: 50px 0 30px !important;
       @media (max-width:596px){
@@ -263,6 +271,7 @@ a:focus{
       top: 50%;
       transform: translate(0%,-50%);
       height: calc(100% - 70px);
+      overflow: auto;
     }
   }
   &-dialog{
