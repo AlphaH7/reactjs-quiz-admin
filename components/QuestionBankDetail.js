@@ -28,7 +28,15 @@ class QuestionBankDetail extends Component {
 
         <div id={`questionBank-${this.props.id}`} className="panel-collapse collapse">
           <div className="panel-body">
-            <ul className="list-group">
+              {this.props.item.image ?
+
+                <ul className="list-group col-sm-6 col-xs-12 mob-pad0">
+                  <li className="list-group-item text-center"><img className="image" src={this.props.item.image} /></li>
+                </ul>
+                : null
+              }
+
+            <ul className={this.props.item.image ? "list-group col-sm-6 col-xs-12 mob-pad0" : "list-group"}>
               {this.props.item.answers.map((item, i) => {
                 return <li key={`item-${this.props.id}-${i}`} className="list-group-item"><b>Option {i+1} : {item}</b></li>
               })}

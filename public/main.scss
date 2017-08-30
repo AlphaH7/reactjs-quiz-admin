@@ -46,7 +46,7 @@ h1 {
     height: 100vh;
     &-qa-cntnr{
       @media (min-width:596px){
-        max-height: calc(100% - 175px);
+        height: calc(100% - 175px);
         overflow: auto;
       }
     }
@@ -100,7 +100,7 @@ h1 {
     &-form{
         margin: 0 3px;
         width: calc(33% - 6px);
-        @media (max-width:596px){
+        @media (max-width:768px){
               margin: 2px;
               width: calc(100% - 4px);
         }
@@ -288,23 +288,39 @@ a:focus{
 }
 .mob{
   &-btn-container{
-    @media (max-width:596px){
+    @media (max-width:768px){
       padding: 0;
       position: fixed;
       bottom: 44px;
     }
   }
-  &-optns-btn{
-  @media (max-width:596px){
-    width: calc(50% - 4px) !important;
-    margin: 2px;
+  &-pad0{
+    @media (max-width:768px){
+        padding: 0;
+    }
   }
-}}
+  &-optns{
+    @media (max-width:768px){
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    &-btn{
+      @media (max-width:768px){
+        width: calc(50% - 4px) !important;
+        margin: 2px;
+      }
+    }
+  }
+}
 
 textarea.addqstn{
   height: 70px;
 }
-
+.md-responsive-fix{
+  @media (min-width:769px){
+    padding-left: 18%;
+  }
+}
 .addqstn{
   color: #fff !important;
   border: 1px solid transparent;
@@ -326,4 +342,25 @@ textarea.addqstn{
   &:-moz-placeholder { /* Firefox 18- */
     color: #fff!important;
   }
+}
+.image{
+  width: 65%;
+  margin: 0 auto 15px;
+}
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    color: #fff;
+    background-color: #2a5d84;
+    font-weight: 400;
+    border-radius: 2px;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background-color 1s;
+    -webkit-transition: background-color 1s;
+    &:hover{
+      background-color: #5cb85c;
+    }
 }

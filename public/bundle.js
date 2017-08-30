@@ -62,7 +62,7 @@
 
 	var _AddQuestionBankForm2 = _interopRequireDefault(_AddQuestionBankForm);
 
-	var _EditQuestionBankForm = __webpack_require__(162);
+	var _EditQuestionBankForm = __webpack_require__(163);
 
 	var _EditQuestionBankForm2 = _interopRequireDefault(_EditQuestionBankForm);
 
@@ -74,7 +74,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	__webpack_require__(163);
+	__webpack_require__(164);
 
 	var questionBankArray = [];
 	var lsArray = JSON.parse(localStorage.getItem('questionBanks'));
@@ -20117,9 +20117,18 @@
 	          _react2.default.createElement(
 	            "div",
 	            { className: "panel-body" },
+	            this.props.item.image ? _react2.default.createElement(
+	              "ul",
+	              { className: "list-group col-sm-6 col-xs-12 mob-pad0" },
+	              _react2.default.createElement(
+	                "li",
+	                { className: "list-group-item text-center" },
+	                _react2.default.createElement("img", { className: "image", src: this.props.item.image })
+	              )
+	            ) : null,
 	            _react2.default.createElement(
 	              "ul",
-	              { className: "list-group" },
+	              { className: this.props.item.image ? "list-group col-sm-6 col-xs-12 mob-pad0" : "list-group" },
 	              this.props.item.answers.map(function (item, i) {
 	                return _react2.default.createElement(
 	                  "li",
@@ -20188,6 +20197,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactFileBase = __webpack_require__(162);
+
+	var _reactFileBase2 = _interopRequireDefault(_reactFileBase);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20204,7 +20217,7 @@
 
 	    var _this = _possibleConstructorReturn(this, (AddQuestionBankForm.__proto__ || Object.getPrototypeOf(AddQuestionBankForm)).call(this, props));
 
-	    _this.state = { count: 1, inputs: [0] };
+	    _this.state = { count: 1, inputs: [0], files: [] };
 	    return _this;
 	  }
 
@@ -20216,7 +20229,6 @@
 	      var answersArray = [];
 	      var question = this.refs.question.value.trim();
 	      var refs = $.extend(true, {}, this.refs);
-	      console.log(refs);
 	      delete refs.question;
 
 	      Object.keys(refs).map(function (inp, index) {
@@ -20230,6 +20242,9 @@
 	        answers: answersArray
 	      };
 
+	      this.state.files.base64 ? questionBankObject.image = this.state.files.base64 : console.log('no image uploaded');
+	      this.state.files = [];
+	      console.log(questionBankObject);
 	      this.props._handleAddQuestionBank(questionBankObject);
 	      this.refs.question.value = "";
 	      this.state.count = 1;
@@ -20245,6 +20260,11 @@
 	      console.log(this.state.inputs);
 	    }
 	  }, {
+	    key: 'getFiles',
+	    value: function getFiles(files) {
+	      this.setState({ files: files });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 
@@ -20254,7 +20274,7 @@
 	        var ph = 'Enter option ' + (input + 1);
 	        return _react2.default.createElement(
 	          'div',
-	          { key: index, className: 'form-group' },
+	          { key: index, className: 'form-group md-responsive-fix' },
 	          _react2.default.createElement(
 	            'label',
 	            {
@@ -20293,7 +20313,7 @@
 	            { className: 'list-right-qa-cntnr' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'form-group list-right-question' },
+	              { className: 'form-group list-right-question col-sm-12' },
 	              _react2.default.createElement(
 	                'label',
 	                { className: 'col-sm-2 col-xs-2 list-right-label',
@@ -20311,17 +20331,41 @@
 	                  placeholder: 'Enter question here' })
 	              )
 	            ),
-	            inputsList
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'mob-optns' },
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'col-sm-6 pad-0' },
+	                inputsList
+	              ),
+	              _react2.default.createElement(
+	                'div',
+	                { className: 'col-sm-6 text-center' },
+	                this.state.files.length != 0 ? _react2.default.createElement('img', { className: 'image', src: this.state.files.base64 }) : _react2.default.createElement(
+	                  'label',
+	                  { className: 'custom-file-upload' },
+	                  _react2.default.createElement(
+	                    'p',
+	                    { className: 'mar-0' },
+	                    'Upload an Image'
+	                  ),
+	                  _react2.default.createElement(_reactFileBase2.default, {
+	                    multiple: false,
+	                    onDone: this.getFiles.bind(this) })
+	                )
+	              )
+	            )
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'form-group' },
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'col-sm-offset-2 col-sm-10 col-xs-12 mob-btn-container' },
+	              { className: 'col-sm-offset-1 col-sm-10 col-xs-12 mob-btn-container' },
 	              _react2.default.createElement(
 	                'button',
-	                { type: 'button', className: 'btn btn-add btn-add-form mob-optns-btn', onClick: this.onclick.bind(this, 'add') },
+	                { type: 'button', className: 'btn btn-add btn-add-form mob-optns-btn', disabled: this.state.count == 6, onClick: this.onclick.bind(this, 'add') },
 	                'Add Option'
 	              ),
 	              _react2.default.createElement(
@@ -20350,6 +20394,117 @@
 
 /***/ }),
 /* 162 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /*! Copyright (c) 2016 Naufal Rabbani (http://github.com/BosNaufal)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * Licensed Under MIT (http://opensource.org/licenses/MIT)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * React File Base64 - Version@1.0.0
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+
+	var FileBase64 = function (_React$Component) {
+	  _inherits(FileBase64, _React$Component);
+
+	  function FileBase64(props) {
+	    _classCallCheck(this, FileBase64);
+
+	    var _this = _possibleConstructorReturn(this, (FileBase64.__proto__ || Object.getPrototypeOf(FileBase64)).call(this, props));
+
+	    _this.state = {
+	      files: []
+	    };
+	    return _this;
+	  }
+
+	  _createClass(FileBase64, [{
+	    key: 'handleChange',
+	    value: function handleChange(e) {
+	      var _this2 = this;
+
+	      // get the files
+	      var files = e.target.files;
+
+	      // Process each file
+	      var allFiles = [];
+
+	      var _loop = function _loop() {
+
+	        var file = files[i];
+
+	        // Make new FileReader
+	        var reader = new FileReader();
+
+	        // Convert the file to base64 text
+	        reader.readAsDataURL(file);
+
+	        // on reader load somthing...
+	        reader.onload = function () {
+
+	          // Make a fileInfo Object
+	          var fileInfo = {
+	            name: file.name,
+	            type: file.type,
+	            size: Math.round(file.size / 1000) + ' kB',
+	            base64: reader.result,
+	            file: file
+	          };
+
+	          // Push it to the state
+	          allFiles.push(fileInfo);
+
+	          // If all files have been proceed
+	          if (allFiles.length == files.length) {
+	            // Apply Callback function
+	            if (_this2.props.multiple) _this2.props.onDone(allFiles);else _this2.props.onDone(allFiles[0]);
+	          }
+	        }; // reader.onload
+	      };
+
+	      for (var i = 0; i < files.length; i++) {
+	        _loop();
+	      } // for
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('input', {
+	        type: 'file',
+	        onChange: this.handleChange.bind(this),
+	        multiple: this.props.multiple });
+	    }
+	  }]);
+
+	  return FileBase64;
+	}(_react2.default.Component);
+
+	exports.default = FileBase64;
+
+
+	FileBase64.defaultProps = {
+	  multiple: false
+	};
+
+/***/ }),
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20568,16 +20723,16 @@
 	exports.default = EditQuestionBankForm;
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(164);
+	var content = __webpack_require__(165);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(166)(content, {});
+	var update = __webpack_require__(167)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -20594,21 +20749,21 @@
 	}
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(165)();
+	exports = module.exports = __webpack_require__(166)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "html {\n  min-height: 100%; }\n\nbody {\n  height: 100%;\n  overflow: hidden;\n  font-family: 'Montserrat', sans-serif;\n  background: #2a9d99; }\n\nh1 {\n  color: #fff;\n  font-family: 'Shadows Into Light', cursive;\n  font-size: 40px;\n  text-align: center; }\n\n.container,\n.sub-container {\n  height: 100%;\n  padding-bottom: 50px; }\n\n.delete-btn {\n  margin-right: 10px; }\n\n.list-left {\n  top: 0px;\n  background: #18344a;\n  height: 100vh;\n  z-index: 999;\n  transition: max-width 1s,width 1s,right 1s;\n  -webkit-transition: max-width 1s,width 1s,right 1s; }\n  .list-left-accordion {\n    background: #18344a;\n    border: 0px;\n    top: 50%;\n    position: absolute;\n    transform: translate(0, -50%);\n    padding: 28px;\n    width: 100%;\n    left: 0;\n    max-height: calc(100% - 137px);\n    overflow: auto; }\n\n.list-right {\n  height: 100vh; }\n  @media (min-width: 596px) {\n    .list-right-qa-cntnr {\n      max-height: calc(100% - 175px);\n      overflow: auto; } }\n  .list-right-question {\n    padding: 50px 0 30px !important; }\n    @media (max-width: 596px) {\n      .list-right-question {\n        padding-top: 30px !important; } }\n  .list-right-label {\n    font-family: 'Shadows Into Light', cursive;\n    font-size: 46px;\n    line-height: 0.8;\n    text-align: right;\n    color: #fff; }\n  .list-right-form {\n    height: calc(100% - 85px);\n    overflow: auto;\n    position: absolute;\n    height: 100%;\n    left: 0px;\n    width: 100%; }\n    .list-right-form-control {\n      border: 1px solid #eee !important; }\n    @media (max-width: 596px) {\n      .list-right-form {\n        height: calc(100% - 225px);\n        overflow: auto; } }\n    .list-right-form-group {\n      padding: 8px 0px; }\n\n.btn {\n  border-radius: 2px;\n  padding: 12px; }\n  @media (max-width: 1080px) {\n    .btn {\n      font-size: 12px; } }\n  .btn-add {\n    color: #fff;\n    background-color: #5cb85c;\n    border-color: #4cae4c;\n    transition: background-color 1s,border-color 1s;\n    -webkit-transition: background-color 1s,border-color 1s,color 1s;\n    outline: none !important; }\n    .btn-add-form {\n      margin: 0 3px;\n      width: calc(33% - 6px); }\n      @media (max-width: 596px) {\n        .btn-add-form {\n          margin: 2px;\n          width: calc(100% - 4px); } }\n    .btn-add:hover {\n      background-color: #2a5d84;\n      border-color: #2a5d84;\n      color: #fff; }\n  .btn-edit-form {\n    margin: 0 3px;\n    width: calc(50% - 6px); }\n  .btn-sub {\n    color: #fff;\n    background-color: #BD5454;\n    border-color: #BD5454;\n    transition: background-color 1s,border-color 1s;\n    -webkit-transition: background-color 1s,border-color 1s,color 1s;\n    outline: none !important; }\n    .btn-sub:hover {\n      background-color: #ee7752;\n      border-color: #ee7752;\n      color: #fff; }\n  .btn[disabled] {\n    background-color: #cfc1c1;\n    border-color: #cfc1c1; }\n    .btn[disabled]:hover {\n      background-color: #cfc1c1;\n      border-color: #cfc1c1; }\n\n.form-control {\n  border: 1px solid #eee;\n  background-color: #eee;\n  box-shadow: none !important;\n  border-radius: 2px;\n  height: 39px; }\n  .form-control::-webkit-input-placeholder {\n    /* Chrome/Opera/Safari */\n    color: #555 !important; }\n  .form-control::-moz-placeholder {\n    /* Firefox 19+ */\n    color: #555 !important; }\n  .form-control:-ms-input-placeholder {\n    /* IE 10+ */\n    color: #555 !important; }\n  .form-control:-moz-placeholder {\n    /* Firefox 18- */\n    color: #555 !important; }\n\n.form-group {\n  padding: 8px 0px; }\n  @media (max-width: 596px) {\n    .form-group {\n      margin: 0 !important; } }\n\n@media (max-width: 596px) {\n  .list-group {\n    margin: 0 !important; } }\n\n.mar-0 {\n  margin: 0 !important; }\n\n.pad-0 {\n  padding: 0 !important; }\n\na:focus {\n  text-decoration: none; }\n\n.panel-default {\n  margin-bottom: 13px !important;\n  -webkit-box-shadow: -2px -2px 40px -3px white;\n  -moz-box-shadow: -2px -2px 40px -3px white;\n  box-shadow: -2px -2px 40px -3px white; }\n\n@media (max-width: 1080px) {\n  .panel-heading {\n    padding: 0 !important;\n    text-align: center !important;\n    background-color: #fff !important; } }\n\n@media (max-width: 596px) {\n  .panel-body {\n    padding: 0 !important; } }\n\n.closePanel {\n  width: 100%;\n  max-width: 100%; }\n  @media (max-width: 1080px) {\n    .closePanel {\n      position: fixed;\n      right: 0px; } }\n\n.openPanel {\n  width: 100%;\n  max-width: 360px; }\n  @media (max-width: 1080px) {\n    .openPanel {\n      position: fixed;\n      right: 100vw; } }\n\n.addq {\n  width: 100%; }\n  .addq-head {\n    text-shadow: 2px 1px 8px black;\n    margin: 0;\n    padding: 20px; }\n  .addq-container {\n    width: 50%;\n    max-width: 400px;\n    margin: 40px auto 0;\n    display: block; }\n    @media (max-width: 1080px) {\n      .addq-container {\n        display: none; } }\n  .addq-mob {\n    display: none;\n    position: fixed;\n    bottom: 0px;\n    width: 100%;\n    left: 0px; }\n    @media (max-width: 1080px) {\n      .addq-mob {\n        display: block; } }\n\n.well {\n  margin-bottom: 0; }\n\n.modal-content {\n  border: 0px;\n  -webkit-box-shadow: -2px -2px 40px -3px white;\n  -moz-box-shadow: -2px -2px 40px -3px white;\n  box-shadow: -2px -2px 40px -3px white; }\n  @media (max-width: 596px) {\n    .modal-content {\n      height: 100vh;\n      border-radius: 0px; } }\n\n@media (max-width: 596px) {\n  .modal-btn {\n    width: 100%;\n    margin: 20px 0; } }\n\n@media (max-width: 596px) {\n  .modal-header {\n    text-align: center; } }\n\n@media (max-width: 596px) {\n  .modal-body {\n    top: 50%;\n    transform: translate(0%, -50%);\n    height: calc(100% - 70px);\n    overflow: auto; } }\n\n.modal-dialog {\n  margin: 0px auto;\n  top: 50%;\n  transform: translate(0, -50%); }\n\n.modal-wrapper {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  background: rgba(0, 0, 0, 0.7); }\n\n@media (max-width: 596px) {\n  .mob-btn-container {\n    padding: 0;\n    position: fixed;\n    bottom: 44px; } }\n\n@media (max-width: 596px) {\n  .mob-optns-btn {\n    width: calc(50% - 4px) !important;\n    margin: 2px; } }\n\ntextarea.addqstn {\n  height: 70px; }\n\n.addqstn {\n  color: #fff !important;\n  border: 1px solid transparent;\n  background-color: transparent;\n  max-width: 100% !important;\n  max-height: 70px !important; }\n  .addqstn:focus {\n    border-color: transparent !important; }\n  .addqstn::-webkit-input-placeholder {\n    /* Chrome/Opera/Safari */\n    color: #fff !important; }\n  .addqstn::-moz-placeholder {\n    /* Firefox 19+ */\n    color: #fff !important; }\n  .addqstn:-ms-input-placeholder {\n    /* IE 10+ */\n    color: #fff !important; }\n  .addqstn:-moz-placeholder {\n    /* Firefox 18- */\n    color: #fff !important; }\n", ""]);
+	exports.push([module.id, "html {\n  min-height: 100%; }\n\nbody {\n  height: 100%;\n  overflow: hidden;\n  font-family: 'Montserrat', sans-serif;\n  background: #2a9d99; }\n\nh1 {\n  color: #fff;\n  font-family: 'Shadows Into Light', cursive;\n  font-size: 40px;\n  text-align: center; }\n\n.container,\n.sub-container {\n  height: 100%;\n  padding-bottom: 50px; }\n\n.delete-btn {\n  margin-right: 10px; }\n\n.list-left {\n  top: 0px;\n  background: #18344a;\n  height: 100vh;\n  z-index: 999;\n  transition: max-width 1s,width 1s,right 1s;\n  -webkit-transition: max-width 1s,width 1s,right 1s; }\n  .list-left-accordion {\n    background: #18344a;\n    border: 0px;\n    top: 50%;\n    position: absolute;\n    transform: translate(0, -50%);\n    padding: 28px;\n    width: 100%;\n    left: 0;\n    max-height: calc(100% - 137px);\n    overflow: auto; }\n\n.list-right {\n  height: 100vh; }\n  @media (min-width: 596px) {\n    .list-right-qa-cntnr {\n      height: calc(100% - 175px);\n      overflow: auto; } }\n  .list-right-question {\n    padding: 50px 0 30px !important; }\n    @media (max-width: 596px) {\n      .list-right-question {\n        padding-top: 30px !important; } }\n  .list-right-label {\n    font-family: 'Shadows Into Light', cursive;\n    font-size: 46px;\n    line-height: 0.8;\n    text-align: right;\n    color: #fff; }\n  .list-right-form {\n    height: calc(100% - 85px);\n    overflow: auto;\n    position: absolute;\n    height: 100%;\n    left: 0px;\n    width: 100%; }\n    .list-right-form-control {\n      border: 1px solid #eee !important; }\n    @media (max-width: 596px) {\n      .list-right-form {\n        height: calc(100% - 225px);\n        overflow: auto; } }\n    .list-right-form-group {\n      padding: 8px 0px; }\n\n.btn {\n  border-radius: 2px;\n  padding: 12px; }\n  @media (max-width: 1080px) {\n    .btn {\n      font-size: 12px; } }\n  .btn-add {\n    color: #fff;\n    background-color: #5cb85c;\n    border-color: #4cae4c;\n    transition: background-color 1s,border-color 1s;\n    -webkit-transition: background-color 1s,border-color 1s,color 1s;\n    outline: none !important; }\n    .btn-add-form {\n      margin: 0 3px;\n      width: calc(33% - 6px); }\n      @media (max-width: 768px) {\n        .btn-add-form {\n          margin: 2px;\n          width: calc(100% - 4px); } }\n    .btn-add:hover {\n      background-color: #2a5d84;\n      border-color: #2a5d84;\n      color: #fff; }\n  .btn-edit-form {\n    margin: 0 3px;\n    width: calc(50% - 6px); }\n  .btn-sub {\n    color: #fff;\n    background-color: #BD5454;\n    border-color: #BD5454;\n    transition: background-color 1s,border-color 1s;\n    -webkit-transition: background-color 1s,border-color 1s,color 1s;\n    outline: none !important; }\n    .btn-sub:hover {\n      background-color: #ee7752;\n      border-color: #ee7752;\n      color: #fff; }\n  .btn[disabled] {\n    background-color: #cfc1c1;\n    border-color: #cfc1c1; }\n    .btn[disabled]:hover {\n      background-color: #cfc1c1;\n      border-color: #cfc1c1; }\n\n.form-control {\n  border: 1px solid #eee;\n  background-color: #eee;\n  box-shadow: none !important;\n  border-radius: 2px;\n  height: 39px; }\n  .form-control::-webkit-input-placeholder {\n    /* Chrome/Opera/Safari */\n    color: #555 !important; }\n  .form-control::-moz-placeholder {\n    /* Firefox 19+ */\n    color: #555 !important; }\n  .form-control:-ms-input-placeholder {\n    /* IE 10+ */\n    color: #555 !important; }\n  .form-control:-moz-placeholder {\n    /* Firefox 18- */\n    color: #555 !important; }\n\n.form-group {\n  padding: 8px 0px; }\n  @media (max-width: 596px) {\n    .form-group {\n      margin: 0 !important; } }\n\n@media (max-width: 596px) {\n  .list-group {\n    margin: 0 !important; } }\n\n.mar-0 {\n  margin: 0 !important; }\n\n.pad-0 {\n  padding: 0 !important; }\n\na:focus {\n  text-decoration: none; }\n\n.panel-default {\n  margin-bottom: 13px !important;\n  -webkit-box-shadow: -2px -2px 40px -3px white;\n  -moz-box-shadow: -2px -2px 40px -3px white;\n  box-shadow: -2px -2px 40px -3px white; }\n\n@media (max-width: 1080px) {\n  .panel-heading {\n    padding: 0 !important;\n    text-align: center !important;\n    background-color: #fff !important; } }\n\n@media (max-width: 596px) {\n  .panel-body {\n    padding: 0 !important; } }\n\n.closePanel {\n  width: 100%;\n  max-width: 100%; }\n  @media (max-width: 1080px) {\n    .closePanel {\n      position: fixed;\n      right: 0px; } }\n\n.openPanel {\n  width: 100%;\n  max-width: 360px; }\n  @media (max-width: 1080px) {\n    .openPanel {\n      position: fixed;\n      right: 100vw; } }\n\n.addq {\n  width: 100%; }\n  .addq-head {\n    text-shadow: 2px 1px 8px black;\n    margin: 0;\n    padding: 20px; }\n  .addq-container {\n    width: 50%;\n    max-width: 400px;\n    margin: 40px auto 0;\n    display: block; }\n    @media (max-width: 1080px) {\n      .addq-container {\n        display: none; } }\n  .addq-mob {\n    display: none;\n    position: fixed;\n    bottom: 0px;\n    width: 100%;\n    left: 0px; }\n    @media (max-width: 1080px) {\n      .addq-mob {\n        display: block; } }\n\n.well {\n  margin-bottom: 0; }\n\n.modal-content {\n  border: 0px;\n  -webkit-box-shadow: -2px -2px 40px -3px white;\n  -moz-box-shadow: -2px -2px 40px -3px white;\n  box-shadow: -2px -2px 40px -3px white; }\n  @media (max-width: 596px) {\n    .modal-content {\n      height: 100vh;\n      border-radius: 0px; } }\n\n@media (max-width: 596px) {\n  .modal-btn {\n    width: 100%;\n    margin: 20px 0; } }\n\n@media (max-width: 596px) {\n  .modal-header {\n    text-align: center; } }\n\n@media (max-width: 596px) {\n  .modal-body {\n    top: 50%;\n    transform: translate(0%, -50%);\n    height: calc(100% - 70px);\n    overflow: auto; } }\n\n.modal-dialog {\n  margin: 0px auto;\n  top: 50%;\n  transform: translate(0, -50%); }\n\n.modal-wrapper {\n  position: absolute;\n  height: 100%;\n  width: 100%;\n  background: rgba(0, 0, 0, 0.7); }\n\n@media (max-width: 768px) {\n  .mob-btn-container {\n    padding: 0;\n    position: fixed;\n    bottom: 44px; } }\n\n@media (max-width: 768px) {\n  .mob-pad0 {\n    padding: 0; } }\n\n@media (max-width: 768px) {\n  .mob-optns {\n    display: flex;\n    flex-direction: column-reverse; } }\n\n@media (max-width: 768px) {\n  .mob-optns-btn {\n    width: calc(50% - 4px) !important;\n    margin: 2px; } }\n\ntextarea.addqstn {\n  height: 70px; }\n\n@media (min-width: 769px) {\n  .md-responsive-fix {\n    padding-left: 18%; } }\n\n.addqstn {\n  color: #fff !important;\n  border: 1px solid transparent;\n  background-color: transparent;\n  max-width: 100% !important;\n  max-height: 70px !important; }\n  .addqstn:focus {\n    border-color: transparent !important; }\n  .addqstn::-webkit-input-placeholder {\n    /* Chrome/Opera/Safari */\n    color: #fff !important; }\n  .addqstn::-moz-placeholder {\n    /* Firefox 19+ */\n    color: #fff !important; }\n  .addqstn:-ms-input-placeholder {\n    /* IE 10+ */\n    color: #fff !important; }\n  .addqstn:-moz-placeholder {\n    /* Firefox 18- */\n    color: #fff !important; }\n\n.image {\n  width: 65%;\n  margin: 0 auto 15px; }\n\ninput[type=\"file\"] {\n  display: none; }\n\n.custom-file-upload {\n  color: #fff;\n  background-color: #2a5d84;\n  font-weight: 400;\n  border-radius: 2px;\n  display: inline-block;\n  padding: 6px 12px;\n  cursor: pointer;\n  transition: background-color 1s;\n  -webkit-transition: background-color 1s; }\n  .custom-file-upload:hover {\n    background-color: #5cb85c; }\n", ""]);
 
 	// exports
 
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports) {
 
 	/*
@@ -20664,7 +20819,7 @@
 
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/*
