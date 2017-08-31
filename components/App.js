@@ -91,7 +91,7 @@ class App extends Component{
   onclick(type){
     this.setState({
        active: type == 'col-md-4 list-left closePanel' ? 'col-md-4 list-left openPanel' : 'col-md-4 list-left closePanel',
-       buttonText: type == 'col-md-4 list-left closePanel' ? 'CLOSE PANEL' : 'ADD QUESTION',
+       buttonText: type == 'col-md-4 list-left closePanel' ? 'CLOSE PANEL' : 'ADD A QUESTION',
     });
   }
 

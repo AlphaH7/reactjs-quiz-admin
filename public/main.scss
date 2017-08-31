@@ -13,6 +13,13 @@ h1 {
   font-size: 40px;
   text-align: center;
 }
+.emptyQB{
+    text-align: center;
+    color: #fff;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 23px;
+    margin-bottom: 50px;
+}
 .container,
 .sub-container {
   height: 100%;
@@ -89,6 +96,9 @@ h1 {
   padding: 12px;
   @media (max-width:1080px){
     font-size: 12px;
+  }
+  &:focus{
+    color: #fff;
   }
   &-add{
     color: #fff;

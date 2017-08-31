@@ -23,7 +23,7 @@ class QuestionBankList extends Component{
     let questionBankNames = "";
     if(this.state.mounted){
       if(this.props.questionBanks.length === 0) {
-        questionBankNames = <h4>* No questionBank yet</h4>;
+        questionBankNames = <h4 className="emptyQB"> No questions yet</h4>;
       } else {
         questionBankNames = this.props.questionBanks.map((data, index) => {
           return <QuestionBankDetail
