@@ -30,10 +30,10 @@ class App extends Component{
   constructor(props) {
     super(props);
     this.state = {
-      active: 'col-sm-4 list-left closePanel',
+      active: 'col-md-4 list-left closePanel',
       modalOpen: props.opened,
       editModalOpen: props.editOpened,
-      buttonText: 'ADD QUESTION',
+      buttonText: 'ADD A QUESTION',
       questionBanks: questionBankArray,
       editingData: '',
       editingIndex: ''
@@ -90,8 +90,8 @@ class App extends Component{
 
   onclick(type){
     this.setState({
-       active: type == 'col-md-4 list-left closePanel' ? 'col-md-4 list-left openPanel' : 'col-md-4 list-left closePanel',
-       buttonText: type == 'col-md-4 list-left closePanel' ? 'CLOSE PANEL' : 'ADD A QUESTION',
+       active: type.includes('closePanel') ? 'col-md-4 list-left openPanel' : 'col-md-4 list-left closePanel',
+       buttonText: type.includes('closePanel') ? 'CLOSE PANEL' : 'ADD A QUESTION',
     });
   }
 
