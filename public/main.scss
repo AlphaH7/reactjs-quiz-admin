@@ -34,8 +34,8 @@ h1 {
     background: #18344a;
     height: 100vh;
     z-index: 999;
-    transition: max-width 1s,width 1s,right 1s;
-    -webkit-transition: max-width 1s,width 1s,right 1s;
+    transition: max-width 0.5s,width 0.5s,right 0.5s;
+    -webkit-transition: max-width 0.5s,width 0.5s,right 0.5s;
     &-accordion{
       background: #18344a;
       border: 0px;
@@ -104,8 +104,8 @@ h1 {
     color: #fff;
     background-color: #5cb85c;
     border-color: #4cae4c;
-    transition: background-color 1s,border-color 1s;
-    -webkit-transition: background-color 1s,border-color 1s,color 1s;
+    transition: background-color 0.75s,border-color 0.75s;
+    -webkit-transition: background-color 0.75s,border-color 0.75s,color 0.75s;
     outline: none !important;
     &-form{
         margin: 0 3px;
@@ -129,8 +129,8 @@ h1 {
     color: #fff;
     background-color: #BD5454;
     border-color: #BD5454;
-    transition: background-color 1s,border-color 1s;
-    -webkit-transition: background-color 1s,border-color 1s,color 1s;
+    transition: background-color 0.75s,border-color 0.75s;
+    -webkit-transition: background-color 0.75s,border-color 0.75s,color 0.75s;
     outline: none !important;
     &:hover{
       background-color: #ee7752;
@@ -368,8 +368,8 @@ input[type="file"] {
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
-    transition: background-color 1s;
-    -webkit-transition: background-color 1s;
+    transition: background-color 0.75s;
+    -webkit-transition: background-color 0.75s;
     &:hover{
       background-color: #5cb85c;
     }
